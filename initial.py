@@ -7,7 +7,7 @@ class Individual:
         source (int): The index(zero-based numbering) indicate the starting point of the path.
         dest (int): The index(zero-based numbering) indicate the ending point of the path.
         iddfs_depth (int): The maximum depth of IDDFS.
-        max_individual_size (int): The path should not larger than this value.
+        max_individual_size (int): The path should not be larger than this value.
     """
 
     def __init__(self, connection_matrix, source, dest, iddfs_depth, max_individual_size):
@@ -39,7 +39,7 @@ def initial(connection_matrix, source, dest, iddfs_depth, population_size, max_i
         dest (int): The index(zero-based numbering) indicate the ending point of the path.
         iddfs_depth (int): The maximum depth of IDDFS.
         population_size (int): How many individuals should the function return.
-        max_individual_size (int): The path should not larger than this value.
+        max_individual_size (int): The path should not be larger than this value.
 
     Returns:
         2d list: Each element is a variable lengthed path.
