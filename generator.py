@@ -6,6 +6,7 @@ class generate:
 
   Attributes:
     type (string): Which graph type to generate.
+      See https://networkx.github.io/documentation/stable/reference/generators.html for required additional argument
       Supported:
         - acomplete: Almost complete graph
         - complete
@@ -48,5 +49,11 @@ class generate:
       raise Exception('Type \'{}\' not supported'.format(self.type))
     if self.out not in self.supported_out:
       raise Exception('Return type \'{}\' not supported'.format(self.out))
+
+    # Ask networkx to generate the graph for us
+    self.g_nx = self.supported_type[self.type](**kwargs)
+    return
+
+  def acomplete_graph(self):
     pass
 
