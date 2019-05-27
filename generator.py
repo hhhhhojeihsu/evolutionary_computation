@@ -21,7 +21,7 @@ class generate:
         - 2d_list
   """
 
-  def __init__(self, type, out="networkx", **kwargs):
+  def __init__(self, type, out="nx", **kwargs):
     """Init class
 
     Attributes:
@@ -38,7 +38,7 @@ class generate:
       "turan": nx.generators.classic.turan_graph,
       "wheel": nx.generators.classic.wheel_graph
     }
-    self.supported_out = {"file", "networkx", "2d_list"}
+    self.supported_out = {"file", "nx", "2d_list"}
 
     self.type = type
     self.out = out
