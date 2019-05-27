@@ -17,17 +17,16 @@ class generate:
         - wheel
     out (string): What the class should return
       Supported:
-        - file
+        - file (TODO)
         - networkx
         - 2d_list
   """
 
-  def __init__(self, type, out="nx", **kwargs):
+  def __init__(self, type, **kwargs):
     """Init class
 
     Attributes:
       supported_type (dict): Supported graph type correspond to its function pointer
-      supported_out (dict): Supported output style
     """
 
     self.supported_type = {
@@ -39,20 +38,30 @@ class generate:
       "turan": nx.generators.classic.turan_graph,
       "wheel": nx.generators.classic.wheel_graph
     }
-    self.supported_out = {"file", "nx", "2d_list"}
 
     self.type = type
-    self.out = out
 
-    # Check supported
+    # Check supported type
     if self.type not in self.supported_type:
       raise Exception('Type \'{}\' not supported'.format(self.type))
-    if self.out not in self.supported_out:
-      raise Exception('Return type \'{}\' not supported'.format(self.out))
 
     # Ask networkx to generate the graph for us
     self.g_nx = self.supported_type[self.type](**kwargs)
     return
+
+  def out(self, type="nx"):
+    """Emit the graph
+    Args:
+      type (string): Type the method should return
+    Attributes:
+      supported_type (dict): Supported output style
+    """
+    self.supported_type = {"file", "nx", "2d_list"}
+
+    self.type = type
+
+    if self.type not in self.supported_type:
+      raise Exception('Return type \'{}\' not supported'.format(self.type))
 
   def acomplete_graph(self):
     pass
