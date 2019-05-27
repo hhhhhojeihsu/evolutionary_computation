@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import networkx as nx
 
 class generate:
@@ -62,6 +63,11 @@ class generate:
 
     if self.type not in self.supported_type:
       raise Exception('Return type \'{}\' not supported'.format(self.type))
+
+    if self.type == "nx":
+      return self.g_nx
+    elif self.type == "2d_list":
+      return nx.to_numpy_matrix(self.g_nx)
 
   def acomplete_graph(self):
     pass
