@@ -17,22 +17,10 @@ class Population:
         self.iddfs_depth = iddfs_depth
         self.population_size = population_size
         self.max_individual_size = max_individual_size
-        self.visited_nodes = []
-
-        # Start iddfs, done in Popultaion. Becasue all individuals share it
-        # Reference: https://www.geeksforgeeks.org/iterative-deepening-searchids-iterative-deepening-depth-first-searchiddfs/
-        self.IDDFS()
 
         # Populate each individaul
         for i in range(self.population_size):
             Individual(connection_matrix, source, dest, max_individual_size)
-
-    def IDDFS(self):
-        pass
-
-    def DLS(self):
-        pass
-
 
 class Individual:
     """Class of individual that initialize using run iddfs and random search
