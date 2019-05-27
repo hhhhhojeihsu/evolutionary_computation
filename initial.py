@@ -21,17 +21,32 @@ class Population:
 
         # Start iddfs, done in Popultaion. Becasue all individuals share it
         # Reference: https://www.geeksforgeeks.org/iterative-deepening-searchids-iterative-deepening-depth-first-searchiddfs/
-        self.IDDFS()
+        print(self.IDDFS())
 
         # Populate each individaul
         for i in range(self.population_size):
             Individual(connection_matrix, source, dest, max_individual_size)
 
     def IDDFS(self):
-        pass
+        for i in range(self.iddfs_depth + 1):
+            self.visited_nodes = [self.source]
+            print('=== Depth ' + str(i) + " ===")
+            if(self.DLS(self.source, self.dest, i)):
+                return True
+        return False
 
-    def DLS(self):
-        pass
+    def DLS(self, source, dest, max_depth):
+        if(source == dest):
+            return True
+        if(max_depth <= 0):
+            return False
+        for i in range(len(self.connection_matrix)):
+            if(self.connection_matrix[source][i] != 0 and i not in self.visited_nodes):
+                self.visited_nodes.append(i)
+                print(i + 1)
+                if(self.DLS(i, dest, max_depth - 1)):
+                    return True
+        return False
 
 
 class Individual:
