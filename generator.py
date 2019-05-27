@@ -9,7 +9,8 @@ class generate:
     type (string): Which graph type to generate.
       See https://networkx.github.io/documentation/stable/reference/generators.html for required additional argument
       Supported:
-        - acomplete: Almost complete graph
+        - acomplete: Almost complete graph, arguments should be the same as complete graph
+          - TODO. Return complete graph currently
         - complete
         - circulant
         - dgm: Dorogovtsev Goltsev Mendes graph
@@ -72,6 +73,8 @@ class generate:
     elif type == "2d_list":
       return nx.to_numpy_matrix(self.g_nx, dtype=int)
 
-  def acomplete_graph(self):
-    pass
+  def acomplete_graph(self, **kwargs):
+    g = self.supported_type['complete'](**kwargs)
+    return g
+
 
