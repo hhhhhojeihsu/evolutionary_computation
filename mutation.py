@@ -1,3 +1,5 @@
+import random
+
 def mutation(neighbor_matrix, ind):
     # supposed individual is a list
     position = random.randint(1, len(ind)-2)
