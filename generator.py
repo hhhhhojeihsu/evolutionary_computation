@@ -15,6 +15,8 @@ class generate:
         - circulant
         - dgm: Dorogovtsev Goltsev Mendes graph
         - ladder
+        - random: fast_gnp_random_graph
+          - It does not gurantee there will be no isolated nodes. Proceed with caution.
         - turan
         - wheel
     weight_limit (int pair): Random weight upper and lower bound
@@ -36,6 +38,7 @@ class generate:
       "circulant": nx.generators.classic.circulant_graph,
       "dgm": nx.generators.classic.dorogovtsev_goltsev_mendes_graph,
       "ladder": nx.generators.classic.ladder_graph,
+      "random": nx.generators.random_graphs.fast_gnp_random_graph,
       "turan": nx.generators.classic.turan_graph,
       "wheel": nx.generators.classic.wheel_graph
     }
