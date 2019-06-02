@@ -76,15 +76,17 @@ def check_cycle(path):
     while(True):
         for idx, vertex in enumerate(path_[idx_start:]):
             idx_ = idx + idx_start
-            if(idx_ == len(path_) - 1):
-                if path_[-1] == path_[-2]:
-                    return path_[:-1]
-                return path_
             if vertex not in vertex_dict:
                 vertex_dict[vertex] = idx_
+                if(idx_ == len(path_) - 1):
+                    return path_
             # cycle detected
             else:
                 cycle_start = vertex_dict[vertex] + 1
+                
+                if(idx_ == len(path_) - 1):
+                    return path_[:cycle_start]
+                
                 # Remove vertices in cycle from dict
                 for vertex_del in path_[cycle_start:idx_]:
                     del vertex_dict[vertex_del]
