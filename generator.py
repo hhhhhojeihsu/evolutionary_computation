@@ -71,7 +71,7 @@ class generate:
     if type == "nx":
       return self.g_nx
     elif type == "2d_list":
-      return nx.to_numpy_matrix(self.g_nx, dtype=int)
+      return nx.to_numpy_array(self.g_nx, dtype=int)
 
   def acomplete_graph(self, **kwargs):
     g = self.supported_type['complete'](**kwargs)
