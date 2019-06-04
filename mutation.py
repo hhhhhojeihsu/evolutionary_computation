@@ -1,10 +1,11 @@
 import random
 
-def mutation(neighbor_matrix, ind, rate=0.1):
+def mutation(neighbor_matrix, parent, rate=0.1):
     # supposed individual is a list
-    if len(ind) <= 2:
+    if len(parent) <= 2:
         pass
     else:
+        ind = parent.copy()
         rate = min(0.9, rate)
         freq = max(1, int(rate * len(ind)))
         for i in range(freq):
