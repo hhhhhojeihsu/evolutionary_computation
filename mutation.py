@@ -5,7 +5,7 @@ def mutation(neighbor_matrix, ind, rate=0.1):
     if len(ind) <= 2:
         pass
     else:
-        rate = max(0.9, rate)
+        rate = min(0.9, rate)
         freq = max(1, int(rate * len(ind)))
         for i in range(freq):
             position = random.randint(1, len(ind)-2)
