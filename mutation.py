@@ -8,7 +8,6 @@ def mutation(neighbor_matrix, ind, rate=0.1):
         rate = max(0.9, rate)
         freq = max(1, int(rate * len(ind)))
         for i in range(freq):
-            
             position = random.randint(1, len(ind)-2)
             prev_pos = ind[position-1]
             next_pos = ind[position+1]
