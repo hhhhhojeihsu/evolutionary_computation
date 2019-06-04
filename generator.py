@@ -55,7 +55,7 @@ class generate:
 
     # Fill in the random value as weight
     for (u, v, w) in self.g_nx.edges(data=True):
-      w['weight'] = np.random.f(2, 4) * 1000 + 1#weight_limit[0], weight_limit[1])
+      w['weight'] = np.random.f(1, 1) * 1000 + 1#weight_limit[0], weight_limit[1])
 
     return
 
