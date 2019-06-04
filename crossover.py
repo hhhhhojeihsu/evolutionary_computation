@@ -79,13 +79,13 @@ def check_cycle(path):
             if vertex not in vertex_dict:
                 vertex_dict[vertex] = idx_
                 if(idx_ == len(path_) - 1):
-                    return path_
+                    return check_cycle(path_)
             # cycle detected
             else:
                 cycle_start = vertex_dict[vertex] + 1
                 
                 if(idx_ == len(path_) - 1):
-                    return path_[:cycle_start]
+                    return check_cycle(path_[:cycle_start])
                 
                 # Remove vertices in cycle from dict
                 for vertex_del in path_[cycle_start:idx_]:
